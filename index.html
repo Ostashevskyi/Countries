@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script defer type="module" src="./script.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="content">
+        <header>
+            <div class="header__wrapper">
+                <button class="header__burger-btn">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="header__wrapper__logo">
+                    <span>C<span>&</span>C</span>
+                </div>
+                <div class="header__wrapper__nav">
+                    <nav>
+                        <ul class="menu__box">
+                            <li class="menu__item">
+                                <a href="./index.html">
+                                    Play
+                                </a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="./rules.html">
+                                    Rules
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="main__gameMode">
+                <p>Choose you game mode</p>
+                <div class="main__gameMode__btns">
+                    <input type="button" value="Local" class="gameModeBtn"> 
+                    <span>OR</span>
+                    <input type="button" value="VS Bot" class="gameModeBtn">
+                </div>
+            </div>
+            <div class="main__gameSection">
+                <p class="turnChecker"></p>
+                <input type="text" class="mainInput" placeholder="Enter words here">
+                <p class="notifications"></p>
+                <textarea name="usedCountries" cols="30" rows="10" disabled></textarea>
+            </div>
+            <div class="main__countriesDetails">
+                <p>Info About Entered Counties</p>
+                <div class="countries__info"></div>
+            </div>
+        </main>
+        
+    </div>
+</body>
+
+</html>
