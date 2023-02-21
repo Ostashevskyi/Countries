@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./styles/style.css">
     <script defer type="module" src="./script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRq1KpetByGyIyxN_gcXgpGSOKnaS8pkg&libraries=places"></script>
 </head>
 <body>
     <div class="content">
@@ -17,7 +18,9 @@
                     <span></span><span></span><span></span>
                 </button>
                 <div class="header__wrapper__logo">
-                    <span>C<span>&</span>C</span>
+                    <a href="./index.html">
+                        <span>C<span>&</span>C</span>
+                    </a>
                 </div>
                 <div class="header__wrapper__nav">
                     <nav>
@@ -37,13 +40,13 @@
                 </div>
             </div>
         </header>
-        <main>
+        <main class="main">
             <div class="main__gameMode">
                 <p>Choose you game mode</p>
                 <div class="main__gameMode__btns">
-                    <input type="button" value="Local" class="gameModeBtn"> 
+                    <button id="local" class="gameModeBtn">Local</button>
                     <span>OR</span>
-                    <input type="button" value="VS Bot" class="gameModeBtn">
+                    <button id="bot" class="gameModeBtn">VS Bot</button>
                 </div>
             </div>
             <div class="main__gameSection">

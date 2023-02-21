@@ -97,7 +97,6 @@ a {
 .header__wrapper .header__wrapper__logo {
   margin-left: 20px;
   justify-content: flex-start;
-  cursor: none;
 }
 @media screen and (max-width: 768px) {
   .header__wrapper .header__wrapper__logo {
@@ -215,7 +214,7 @@ main .main__gameMode p {
 }
 @media (max-width: 320px) {
   main .main__gameMode p {
-    font-size: 10px;
+    font-size: 15px;
     text-align: center;
   }
 }
@@ -232,7 +231,7 @@ main .main__gameMode__btns {
     margin: 40px 40px;
   }
 }
-main .main__gameMode__btns input {
+main .main__gameMode__btns button {
   width: 250px;
   height: 150px;
   border-radius: 20%;
@@ -244,7 +243,7 @@ main .main__gameMode__btns input {
   cursor: pointer;
   box-shadow: 0px 9px rgba(237, 216, 157, 0.5882352941);
 }
-main .main__gameMode__btns input:active {
+main .main__gameMode__btns button:active {
   background-color: #f5731d;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
@@ -284,8 +283,9 @@ main .main__gameSection.active {
 }
 main .main__gameSection .turnChecker {
   font-size: 20px;
-  margin-bottom: 20px;
+  padding: 0px 15px 20px 15px;
   font-family: "Press Start 2P", cursive;
+  text-align: center;
 }
 main .main__gameSection .mainInput {
   width: 250px;
@@ -342,15 +342,26 @@ main .main__countriesDetails.active {
   justify-content: center;
   align-content: center;
 }
+main .main__countriesDetails p {
+  font-family: "Press Start 2P", cursive;
+  font-size: 20px;
+  padding: 0px 15px 15px 15px;
+  text-align: center;
+}
 main .main__countriesDetails .countries__info {
   min-width: 100%;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+main .main__countriesDetails .countries__info::-webkit-scrollbar {
+  display: none;
 }
 main .main__countriesDetails .countries__info .countryDetails__info {
   display: flex;
   align-items: center;
   font-size: 15px;
   font-family: "Press Start 2P", cursive;
-  margin: 0px 15px 10px 100px;
+  margin: 0px 15px 10px 70px;
 }
 @media (max-width: 320px) {
   main .main__countriesDetails .countries__info .countryDetails__info {
@@ -362,26 +373,27 @@ main .main__countriesDetails .countries__info .countryDetails__info .flagPic {
   width: 50px;
   height: 50px;
 }
-@media (min-width: 320px) and (max-width: 767px) {
-  main .main__countriesDetails .countries__info .countryDetails__info {
-    margin: 0px 15px 10px 20px;
-  }
-}
-main .main__countriesDetails p:first-child {
+main .main__countriesDetails .countries__info .countryDetails__info p {
+  line-height: 1.2;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left;
   font-size: 20px;
   font-family: "Press Start 2P", cursive;
 }
 @media (min-width: 320px) and (max-width: 500px) {
-  main .main__countriesDetails p:first-child {
+  main .main__countriesDetails .countries__info .countryDetails__info p {
     font-size: 15px;
     padding: 0px 15px;
   }
 }
 @media (min-width: 501px) and (max-width: 600px) {
-  main .main__countriesDetails p:first-child {
+  main .main__countriesDetails .countries__info .countryDetails__info p {
     padding: 0px 20px;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  main .main__countriesDetails .countries__info .countryDetails__info {
+    margin: 0px 15px 10px 20px;
   }
 }
 main .rule__wrapper {
@@ -405,9 +417,93 @@ main .rule__wrapper .rule__text p {
 main .rule__wrapper .rule__text p:nth-child(2) {
   margin-top: 50px;
 }
-main .rule__wrapper .rule__text p:nth-child(5) {
+main .rule__wrapper .rule__text p:nth-child(n+6) {
   font-weight: 700;
   text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  main .rule__wrapper {
+    height: auto;
+  }
+  main .rule__wrapper .rule__text h1 {
+    font-size: 20px;
+  }
+  main .rule__wrapper .rule__text p {
+    font-size: 10px;
+  }
+}
+
+.playersInfo {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.playersInfo .playerInfo {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.playersInfo .playerInfo div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.playersInfo .playerInfo div h3 {
+  margin-bottom: 20px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 15px;
+}
+.playersInfo .playerInfo div input {
+  width: 200px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #fff;
+  border: none;
+  color: #000;
+  font-family: "Press Start 2P", cursive;
+}
+.playersInfo .playerInfo div input::-moz-placeholder {
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
+}
+.playersInfo .playerInfo div input::placeholder {
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
+}
+@media screen and (max-width: 768px) {
+  .playersInfo .playerInfo {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .playersInfo .playerInfo div {
+    margin-bottom: 50px;
+  }
+  .playersInfo .playerInfo div h3 {
+    font-size: 15px;
+    text-align: center;
+  }
+}
+.playersInfo button {
+  width: 180px;
+  height: 100px;
+  border-radius: 20%;
+  font-size: 15px;
+  overflow: hidden;
+  border: 1px solid #f0d078;
+  background-color: #edd89d;
+  font-family: "Press Start 2P", cursive;
+  cursor: pointer;
+  box-shadow: 0px 9px rgba(237, 216, 157, 0.5882352941);
+}
+.playersInfo button:active {
+  background-color: #f5731d;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 /*# sourceMappingURL=style.css.map */
