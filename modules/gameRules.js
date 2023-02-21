@@ -22,13 +22,14 @@ async function gameRules() {
     const activePlayer = player1.activePlayer ? player1.name : player2.name;
 
     const data = await getAllCountries();
+    console.log(data);
 
     const countriesName = data.map(country => country.name);
 
     const realCountry = countriesName.filter(country => country === inputData);
     
     countriesData.letterFilteredCountries = countriesName.filter(country => 
-        inputData[inputData.length - 1] === country[0].toLowerCase() && country !== inputData && !(countriesData.usedCountries.includes(country)));
+        inputData[inputData.length - 1].toLowerCase() === country[0].toLowerCase() && country !== inputData && !(countriesData.usedCountries.includes(country)));
 
     !countriesData.letterFilteredCountries?.length ? createWinNotification(activePlayer) : "";
 
