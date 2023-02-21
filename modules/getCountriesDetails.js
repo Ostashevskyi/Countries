@@ -1,25 +1,14 @@
-import { mainInput } from "../script.js";
 import getData from "./getData.js";
 
 async function handleData() {
-    return await getData(mainInput.value);
+    return await getData();
 }
 
-async function getCountryData() {
-    const countryData = {
-        capital: '',
-        flag: '',
-    }
-
+async function getAllCountries() {
     const data = await handleData();
-    console.log(data);
-    const {capital} = data;
-    countryData.capital = capital;
-
-    const {flags} = data;
-    countryData.flag = flags.png;
+    const {countries} = data;
     
-    return countryData;
+    return countries;
 }
 
-export {getCountryData}
+export {getAllCountries}

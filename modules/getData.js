@@ -1,6 +1,7 @@
-async function getData(country) {
-    const data = await axios.get(`https://restcountries.com/v3.1/name/${country}`).then((response) => response).catch((error) => console.log(error));
-    return data.data[0];
+async function getData() {
+    const data = await axios.get(`https://geoenrich.arcgis.com/arcgis/rest/services/World/geoenrichmentserver/Geoenrichment/countries?f=pjson`);
+    
+    return data.data;
 }
 
 export default getData

@@ -1,9 +1,9 @@
 import countryList from "../data/countries.js";
 
 function letterStart(inputData, usedCountries) {
-    let startsOnLetter = [];
+    const startsOnLetter = [];
 
-    countryList.map(country => {
+    countryList.forEach(country => {
         if (country.startsWith(inputData.at(-1).toUpperCase()) && !(usedCountries.includes(country))) {
             startsOnLetter.push(country);
         }

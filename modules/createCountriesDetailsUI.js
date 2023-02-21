@@ -1,31 +1,32 @@
-import { getCountryData } from "./getCountriesDetails.js";
-import { usedCountries } from "../script.js";
+import { mainInput } from "../script.js";
+import { getAllCountries } from "./getCountriesDetails.js";
 
 async function createCountryDetailUI() {
+    const countryData = await getAllCountries();
+    const countryDetails = countryData.filter(country => country.name === mainInput.value);
+    const fullCountryInfo = getFirstValue(countryDetails);
 
-    const countryData = await getCountryData();
-    const {flag} = countryData;
-    const {capital} = countryData; 
+    const {name} = fullCountryInfo;
+    const {continent} = fullCountryInfo; 
+    const {currencyCode} = fullCountryInfo;
+    const {currencySymbol} = fullCountryInfo;
 
     const countryDiv = document.createElement('div');
     countryDiv.classList.add('countryDetails__info');
 
     const capitalP = document.createElement('p');
-    capitalP.innerHTML = `Country: ${usedCountries[0]}, Capital: ${capital ? capital : 'This country don\'t have capital'}`; 
+    capitalP.innerHTML = `Country: ${name}, <br> 
+        Continent: ${continent}, <br>
+        Currency code: ${currencyCode}, <br>
+        Currency symbol: ${currencySymbol}`; 
 
-    const flagImg = document.createElement('img');
-    flagImg.classList.add('flagPic')
-    flagImg.src = flag;
-
-    countryDiv.appendChild(flagImg);
     countryDiv.appendChild(capitalP);
-
-    if (usedCountries.length % 6 === 0) {
-        document.querySelector('.countries__info').replaceChildren();
-    }
 
     document.querySelector('.countries__info').appendChild(countryDiv);
 }
 
+function getFirstValue(data) {
+    if (data?.length) return data[0];
+}
 
 export {createCountryDetailUI}

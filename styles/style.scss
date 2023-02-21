@@ -103,7 +103,6 @@ a {
     .header__wrapper__logo {
         margin-left: 20px;
         justify-content: flex-start;
-        cursor: none;
         @media screen and (max-width: 768px) {
             margin-right: 20px;
         }
@@ -228,7 +227,7 @@ main {
 
         @media (max-width: 320px) {
             p {
-                font-size: 10px;
+                font-size: 15px;
                 text-align: center;
             }
         }        
@@ -246,7 +245,7 @@ main {
             }
         }
 
-        input {
+        button {
             width: 250px;
             height: 150px;
             border-radius: 20%;
@@ -302,8 +301,9 @@ main {
         }
         .turnChecker {
             font-size: 20px;
-            margin-bottom: 20px;
+            padding: 0px 15px 20px 15px;
             font-family: $font_PressStart; //pd
+            text-align: center;
         }
         .mainInput {
             width: 250px;
@@ -364,15 +364,25 @@ main {
             justify-content: center;
             align-content: center;
         }
-
+        p {
+            font-family: $font_PressStart;
+            font-size: 20px;
+            padding: 0px 15px 15px 15px;
+            text-align: center;
+        }
         .countries__info {
             min-width: 100%;
+            max-height: 300px;
+            overflow-y: scroll;
+            &::-webkit-scrollbar {
+                display: none;
+            }
             .countryDetails__info {
                 display: flex;
                 align-items: center;
                 font-size: 15px;
                 font-family: $font_PressStart; //roboto
-                margin: 0px 15px 10px 100px;
+                margin: 0px 15px 10px 70px;
     
                 @media (max-width: 320px) {
                     line-height: 20px;
@@ -383,32 +393,30 @@ main {
                     width: 50px;
                     height: 50px;
                 }
-    
+
+                p {
+                    line-height: 1.2;
+                    margin-bottom: 20px;
+                    text-align: left;
+                    font-size: 20px;
+                    font-family: $font_PressStart;
+
+                    @media (min-width: 320px) and (max-width: 500px)  {
+                        font-size: 15px;
+                        padding: 0px 15px;
+                    }
+
+                    @media (min-width: 501px) and (max-width: 600px) {
+                        padding: 0px 20px;
+                    }
+                }
+
                 @media (min-width: 320px) and (max-width: 767px) {
                     margin: 0px 15px 10px 20px;
                 }
             }
         }
-
-        p {
-            &:first-child {
-                margin-bottom: 20px;
-                text-align: center;
-                font-size: 20px;
-                font-family: $font_PressStart;
-
-                @media (min-width: 320px) and (max-width: 500px)  {
-                    font-size: 15px;
-                    padding: 0px 15px;
-                }
-
-                @media (min-width: 501px) and (max-width: 600px) {
-                    padding: 0px 20px;
-                }
-            }
-        }
     }
-
     .rule__wrapper {
         display: flex;
         justify-content: center;
@@ -427,14 +435,96 @@ main {
                 &:nth-child(2) {
                     margin-top: 50px;
                 }
-                &:nth-child(5) {
+                &:nth-child(n+6) {
                     font-weight: 700;
                     text-transform: uppercase;
                 }
             }
         }
+
+        @media (max-width: 768px) {
+            height: auto;
+            .rule__text {
+                h1 {
+                    font-size: 20px;
+                }
+                p {
+                    font-size: 10px;
+                }
+            }
+        }
     }
-        
 }
+
+.playersInfo {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .playerInfo {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 100px;
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            h3 {
+                margin-bottom: 20px;
+                font-family: $font_PressStart;
+                font-size: 15px;
+            }
+            input {
+                width: 200px;
+                padding: 20px;
+                border-radius: 20px;
+                background: #fff;
+                border: none;
+                color: #000;
+                font-family: $font_PressStart;
+                &::placeholder {
+                    font-family: $font_PressStart;
+                    font-size: 10px;
+                }
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+            margin-bottom: 20px;
+            div {
+                margin-bottom: 50px;
+                h3 {
+                    font-size: 15px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    button {
+        width: 180px;
+        height: 100px;
+        border-radius: 20%;
+        font-size: 15px;
+        overflow: hidden;
+        border: 1px solid #f0d078;
+        background-color: #edd89d;
+        font-family: $font_PressStart;
+        cursor: pointer;
+        box-shadow: 0px 9px #edd89d96;
+        &:active {
+            background-color: #f5731d;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    }
+
+   
+}
+
 
 /*# sourceMappingURL=style.scss.map */

@@ -1,15 +1,17 @@
-import { usedCountries, mainInput } from "../script.js";
-import { counter } from "./listMap.js";
-import { counterAI } from "./listMapAI.js";
+import { countriesData } from "../data/countriesData.js";
+import { mainInput } from "../script.js";
+import { counter } from "./gameRules.js";
 
 function checkLetter() {
-    const word = usedCountries.at(0);
+    let word = countriesData.usedCountries.at(-1)?.toLowerCase();
+
     const inputData = mainInput.value.toLowerCase();
     
-    let flag = true;
-    if (counter === 1 && usedCountries.length === 0 || counterAI === 1 && usedCountries.length === 0) counter = 0;
+    if (counter === 1 && countriesData.usedCountries.length === 0) counter = 0;
     
-    if (counter >= 1 && !(inputData.at(0) === word.at(-1)) || counterAI >= 1 && !(inputData.at(0) === word.at(-1))) {
+    let flag = true;
+    
+    if (counter >= 1 && !(inputData.at(0) === word.at(-1))) {
        flag = false;
     }
 

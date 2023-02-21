@@ -1,37 +1,33 @@
-import { playersName, gameMode } from "../script.js";
 import turnAlerter from "./turnAlerter.js";
-import { getAIName } from "./AI.js";
 import getName from "./getName.js";
+import { player1, player2 } from "../data/playerInfo.js";
+import createNamePage from "./createNamePage.js";
 
 
 function setNames() {
-    if (gameMode === 'Local') {
-        for (let i = 0; i < 2; i++) {
-            playersName.push(getName(`Player ${i+1}`));
-        }
-    } else {
-        for (let i = 0; i < 2; i++) {
-            if (i % 2 == 0) {
-                playersName.push(getName(`Player ${i+1}`));
-            } else {
-                playersName.push(getAIName());
-            }
-        }
-    }
-
-    activeGameSection();
+    player1.activePlayer = true;
     turnAlerter();
 }
 
-
 function activeGameSection() {
+    createNamePage();
     document.querySelector('.main__gameMode').style.display = 'none';
     document.querySelector('main').classList.add('active');
 
-    const gameSection =  document.querySelector('.main__gameSection');
-    gameSection.classList.add('active');
-
-    document.querySelector('.main__countriesDetails').classList.add('active');
+    document.querySelector('.submitNameBtn').addEventListener('click', () => {
+        getName();
+        if (player1.name === "" || player2.name === "") {
+            alert('Fill all fields')
+        } else if (player1.name === player2.name && (player1.name !== "" || player2.name !== "")) {
+            alert('Names cannot be similar');
+        } else {
+            document.querySelector('.main__gameSection').classList.add('active');
+            document.querySelector('.main__countriesDetails').classList.add('active');
+            document.querySelector('.playersInfo').style.display = 'none';
+            setNames();
+        }
+    })
 }
 
-export default setNames
+
+export {activeGameSection, setNames}
