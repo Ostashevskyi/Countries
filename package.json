@@ -1,5 +1,30 @@
 {
+  
+  "name": "countries-game",
+  "description": "coutries game to play local with friend",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ostashevskyi/Countries-game.git"
+  },
+  "keywords": [
+    "game",
+    "countries",
+    "javascript",
+    "scss",
+    "html"
+  ],
   "dependencies": {
     "axios": "^1.3.2"
-  }
+  },
+  "author": "Ostashevskyi Yurii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ostashevskyi/Countries-game/issues"
+  },
+  "homepage": "https://github.com/Ostashevskyi/Countries-game#readme"
 }
